@@ -1,6 +1,6 @@
-import deotenv from "dotenv ";
+import dotenv from "dotenv";
 
-deotenv.config();
+dotenv.config();
 
 export const ENV = {
   NODE_ENV: process.env.NODE_ENV,

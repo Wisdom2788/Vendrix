@@ -4,7 +4,7 @@ import { ENV } from "./config/env.js";
 
  const app = express();
 
- const _dirname = path.resolve();
+ const __dirname = path.resolve()
 
  app.get("/api/health", (req, res) => {
     res.status(200).json({message: "Success"});
@@ -15,8 +15,8 @@ if (ENV.NODE_ENV === "production") {
    app.use(express.static(path.join(__dirname, "--/admin/dist")))
 
    app.get("/{*any}", (req,res) => {
-      res.sendFile(path.jason(__dirname, "../admin", "dist", "index.html"));
+      res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"));
    });
 }
 
- app.listen(ENV, () => console.log("This server is Up and Running...")); 
+ app.listen(ENV.PORT, () => console.log("This server is Up and Running...")); 
